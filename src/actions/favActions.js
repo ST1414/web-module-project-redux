@@ -6,5 +6,10 @@ export const toggleDisplayFav = () => {
     return ({ type: TOGGLE_DISPLAY_FAV})
 }
 // addFav
-
+export const addFav = (movie) => {
+    return ({type: ADD_FAV, payload: movie});
+}
 // removeFav
+export const removeFav = (movieId) => {
+    return ({type: REMOVE_FAV, payload: movieId})
+}
