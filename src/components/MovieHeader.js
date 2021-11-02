@@ -6,7 +6,6 @@ import { toggleDisplayFav } from '../actions/favActions';
 const MovieHeader = (props) => {
     const appTitle = props.appTitle;
     const displayFavorites = props.displayFavorites;
-    console.log('MOVIE HEADER: ', displayFavorites); // <----- CONSOLE LOG
     
     const handleClick = () => {
         props.toggleDisplayFav();

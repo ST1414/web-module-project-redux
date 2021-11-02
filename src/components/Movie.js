@@ -5,7 +5,7 @@ import { deleteMovie } from '../actions/movieActions';
 import { addFav, removeFav } from '../actions/favActions';
 
 const Movie = (props) => {
-    const { id } = useParams(); // Pull the ID from the URL
+    const { id } = useParams(); // Pulls the ID from the URL
     const { push } = useHistory();
 
     const movies = props.movies;
@@ -16,8 +16,8 @@ const Movie = (props) => {
         push('/movies');
     }
 
-    const handleClickAddFav = (movieId) => { // <---------- ACTION NEEDED
-        props.addFav(movies.find(movie=>movie.id===movieId))
+    const handleClickAddFav = (movie) => { 
+        props.addFav(movie)
     }
 
     console.log('MOVIE.JS: ', props); //<----- CONSOLE LOG
@@ -51,7 +51,7 @@ const Movie = (props) => {
                         </section>
                         
                         <section>
-                            <span className="m-2 btn btn-dark" onClick={ () => {handleClickAddFav(movie.id)} }>Favorite</span>
+                            <span className="m-2 btn btn-dark" onClick={ () => {handleClickAddFav(movie)} }>Favorite</span>
                             <span className="delete">
                                 <input 
                                     type="button" 

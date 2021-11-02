@@ -6,7 +6,6 @@ import { removeFav } from '../actions/favActions';
 
 const FavoriteMovieList = (props) => {
     const favorites = props.favorites;
-    console.log("FAV_MOVIE_LIST: ", favorites) // <-------- CONSOLE LOG
     
     const handleClickRemoveFav = (movieId) => {
         props.removeFav(movieId)

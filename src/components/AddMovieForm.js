@@ -16,16 +16,17 @@ const AddMovieForm = (props) => {
         description:""
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { 
         setMovie({
-            ...movie,
+            ...movie,  //  QUESTION: Why don't we see movies in Props? Bc it's local state?
             [e.target.name]: e.target.value
         });
+        console.log('ADD MOVE FORM: handleChange: ', props)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.addMovie(movie); // <<<<<<<<<<<<<< WHY
+        props.addMovie(movie); 
         push('/movies/');
     }
 

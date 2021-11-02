@@ -17,10 +17,13 @@ const favReducer = (state = initialState, action) => {
             }
         case ADD_FAV:
             console.log('ADD FAV: ', action.payload)
-            return {
-                ...state,
-                favorites: [...state.favorites, action.payload]
+            if (!state.favorites.find(movie=>movie.id===action.payload.id)){
+                return {
+                    ...state,
+                    favorites: [...state.favorites, action.payload]
+                }
             }
+            return state;
         case REMOVE_FAV:
             return {
                 ...state,
