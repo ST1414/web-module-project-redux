@@ -8,6 +8,7 @@ const AddMovieForm = (props) => {
     const { push } = useHistory();
 
     const [movie, setMovie] = useState({
+        id: Date.now(),
         title: "",
         director: "",
         genre: "",
@@ -15,14 +16,18 @@ const AddMovieForm = (props) => {
         description:""
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { 
         setMovie({
-            ...movie,
+            ...movie,  //  QUESTION: Why don't we see movies in Props? Bc it's local state?
             [e.target.name]: e.target.value
         });
+        console.log('ADD MOVE FORM: handleChange: ', props)
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+        props.addMovie(movie); 
+        push('/movies/');
     }
 
     const { title, director, genre, metascore, description } = movie;
@@ -67,4 +72,4 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+export default connect(null, { addMovie })(AddMovieForm);
